@@ -146,10 +146,10 @@ export function Hero() {
            initial={{ opacity: 0, y: 100 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1.2, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-           className="relative perspective-[1200px] w-full max-w-5xl mt-20 md:mt-32 lg:mt-40"
+           className="relative perspective-distant w-full max-w-5xl mt-20 md:mt-32 lg:mt-40"
         >
           {/* Main Interactive Mockup */}
-          <div className="relative z-20 w-full aspect-[16/10] md:aspect-[21/9] rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden flex flex-col">
+          <div className="relative z-20 w-full aspect-16/10 md:aspect-21/9 rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden flex flex-col">
             {/* Fake Window Header */}
             <div className="h-10 md:h-12 bg-white border-b border-brand-dark/10 flex items-center px-4 md:px-6 gap-2">
               <div className="flex gap-2">
