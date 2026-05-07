@@ -33,17 +33,17 @@ export function Problema() {
   useGSAP(() => {
     if (!sectionRef.current || !bgRef.current || !headlineRef.current) return;
 
-    // Background gradient transition
+    // ⭐ DRAMATIC Background color transition - red/warm tones for problems
     gsap.fromTo(bgRef.current, 
-      { background: 'linear-gradient(135deg, #ffffff 0%, #F4FAFD 100%)' },
+      { background: 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,245,240,1) 100%)' },
       {
-        background: 'linear-gradient(135deg, #E8F6FB 0%, #F4FAFD 100%)',
+        background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(239,68,68,0.04) 25%, rgba(239,68,68,0.12) 50%, rgba(239,68,68,0.08) 75%, rgba(239,68,68,0.03) 100%)',
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top center",
           end: "bottom center",
-          scrub: true,
+          scrub: 1,
         }
       }
     );
