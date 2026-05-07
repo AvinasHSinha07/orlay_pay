@@ -27,7 +27,7 @@ export function Mappe() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 85%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         }
       }
     );
@@ -44,7 +44,7 @@ export function Mappe() {
       scrollTrigger: {
         trigger: headlineRef.current,
         start: "top 85%",
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none reverse",
       }
     });
 
@@ -60,43 +60,100 @@ export function Mappe() {
         scrollTrigger: {
           trigger: ".mappe-text",
           start: "top 80%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         }
       }
     );
 
-    // Map UI parallax/reveal
+    // Map UI Elegant Entrance
     gsap.fromTo(mockupRef.current,
-      { opacity: 0, scale: 0.9, rotateX: 20 },
+      { opacity: 0, scale: 0.85, rotateX: 15, rotateY: -10, y: 40 },
       {
         opacity: 1,
         scale: 1,
         rotateX: 0,
-        duration: 1.2,
+        rotateY: 0,
+        y: 0,
+        duration: 1.5,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: mockupRef.current,
-          start: "top 80%",
-          toggleActions: "play reverse play reverse",
+          trigger: containerRef.current,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
         }
       }
     );
 
-    // Route path animation
-    gsap.fromTo(".mappe-path",
-      { strokeDashoffset: 1000 },
+    // Stagger in map markers
+    gsap.fromTo(".map-marker",
+      { scale: 0, opacity: 0 },
       {
-        strokeDashoffset: 0,
-        duration: 2,
-        ease: "easeInOut",
+        scale: 1,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.2,
+        ease: "back.out(2)",
         scrollTrigger: {
           trigger: mockupRef.current,
           start: "top 70%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         }
       }
     );
 
+    // Stagger tooltips
+    gsap.fromTo(".map-tooltip",
+      { scale: 0, opacity: 0, y: 15 },
+      {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        delay: 0.3,
+        ease: "back.out(1.5)",
+        scrollTrigger: {
+          trigger: mockupRef.current,
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        }
+      }
+    );
+
+    // Continuous float animation for each POI group
+    gsap.to(".map-marker-container", {
+      y: -10,
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: 0.3,
+    });
+
+    // Radar pulse animation
+    gsap.fromTo(".map-ring",
+      { scale: 0.8, opacity: 0.5 },
+      {
+        scale: 2.5,
+        opacity: 0,
+        duration: 2.5,
+        repeat: -1,
+        stagger: 0.6,
+        ease: "power2.out"
+      }
+    );
+
+    // Route path continuously flowing
+    gsap.to(".mappe-path-flow", {
+      strokeDashoffset: -50,
+      duration: 3,
+      repeat: -1,
+      ease: "none"
+    });
+
+    return () => {
+      text.revert();
+    };
   }, { scope: containerRef });
 
   return (
@@ -109,44 +166,63 @@ export function Mappe() {
           <div className="order-2 lg:order-1 relative">
             <div 
               ref={mockupRef}
-              className="relative perspective-[1000px] w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-white rounded-[2.5rem] p-4 shadow-[0_20px_60px_rgba(4,7,7,0.05)] border border-brand-primary/10 flex items-center justify-center overflow-hidden"
+              className="relative perspective-[1000px] w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-white rounded-[2.5rem] p-4 shadow-[0_30px_80px_rgba(4,7,7,0.1)] border border-brand-primary/10 flex items-center justify-center overflow-hidden"
             >
               {/* Fake Map Content */}
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-primary/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-primary/20 via-transparent to-transparent" />
               
               {/* Route Animation */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <svg className="absolute inset-0 w-full h-full drop-shadow-sm" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <path 
                   d="M20 80 Q 40 80, 50 50 T 80 20"
                   fill="none"
-                  stroke="var(--color-brand-primary)"
-                  strokeWidth="0.5"
-                  strokeDasharray="1000"
-                  strokeDashoffset="1000"
-                  className="mappe-path opacity-50"
+                  stroke="url(#route-gradient)"
+                  strokeWidth="0.8"
+                  strokeLinecap="round"
+                  strokeDasharray="2 3"
+                  className="mappe-path-flow opacity-80"
                 />
+                <defs>
+                   <linearGradient id="route-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                     <stop offset="0%" stopColor="#3b82f6" />
+                     <stop offset="50%" stopColor="var(--color-brand-primary)" />
+                     <stop offset="100%" stopColor="#f59e0b" />
+                   </linearGradient>
+                </defs>
               </svg>
 
               {/* Points of Interest */}
-              <div className="absolute left-[20%] bottom-[20%] w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shadow-lg border border-blue-200">
-                 <Navigation size={20} className="text-brand-primary" />
-                 <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded text-[10px] font-bold shadow-sm whitespace-nowrap text-brand-dark">
+              {/* Entrance */}
+              <div className="map-marker-container absolute left-[20%] bottom-[20%] -translate-x-1/2 translate-y-1/2 z-10">
+                 <div className="map-ring absolute inset-0 rounded-full bg-blue-400"></div>
+                 <div className="map-marker relative w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shadow-lg border border-blue-200">
+                   <Navigation size={20} className="text-brand-primary" />
+                 </div>
+                 <div className="map-tooltip absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl whitespace-nowrap text-brand-dark">
                    Ingresso
                  </div>
               </div>
 
-              <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center shadow-[0_0_30px_rgba(41,176,222,0.3)]">
-                 <div className="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center shadow-lg">
-                   <div className="w-3 h-3 rounded-full bg-white animate-pulse" />
+              {/* Food Court */}
+              <div className="map-marker-container absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-20">
+                 <div className="map-ring absolute inset-0 rounded-full bg-brand-primary"></div>
+                 <div className="map-marker relative w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center shadow-[0_0_30px_rgba(41,176,222,0.3)] backdrop-blur-sm border border-brand-primary/30">
+                   <div className="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center shadow-lg">
+                     <div className="w-3 h-3 rounded-full bg-white animate-pulse" />
+                   </div>
                  </div>
-                 <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-brand-dark text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl whitespace-nowrap">
+                 <div className="map-tooltip absolute bottom-full mb-4 left-1/2 -translate-x-1/2 bg-brand-dark text-white px-4 py-2 rounded-xl text-sm font-bold shadow-2xl whitespace-nowrap border border-white/10">
                    Food Court Centrale
                  </div>
               </div>
 
-              <div className="absolute right-[20%] top-[20%] w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center shadow-lg border border-amber-200">
-                 <Map size={20} className="text-amber-500" />
-                 <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded text-[10px] font-bold shadow-sm whitespace-nowrap text-brand-dark">
+              {/* VIP Area */}
+              <div className="map-marker-container absolute right-[20%] top-[20%] translate-x-1/2 -translate-y-1/2 z-10">
+                 <div className="map-ring absolute inset-0 rounded-full bg-amber-400"></div>
+                 <div className="map-marker relative w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center shadow-lg border border-amber-200">
+                   <Map size={20} className="text-amber-500" />
+                 </div>
+                 <div className="map-tooltip absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl whitespace-nowrap text-brand-dark">
                    Area VIP
                  </div>
               </div>

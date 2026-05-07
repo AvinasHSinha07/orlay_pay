@@ -64,38 +64,28 @@ export function ConsoleOrganizzatore() {
       }
     );
 
-    // Mockup parallax & reveal
+    // Mockup scroll-based grow animation (starts small, grows large)
     gsap.fromTo(mockupRef.current,
       { 
-        scale: 0.95,
+        scale: 0.6,
         y: 100,
-        opacity: 0,
+        opacity: 1,
+        rotateX: 0
       },
       {
         scale: 1,
         y: 0,
         opacity: 1,
-        duration: 1.5,
-        ease: "power3.out",
+        rotateX: 0,
+        ease: "none",
         scrollTrigger: {
           trigger: mockupRef.current,
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
+          start: "top 95%",
+          end: "center center",
+          scrub: 1,
         }
       }
     );
-
-    // Parallax effect using scrollTrigger scrub
-    gsap.to(mockupRef.current, {
-      y: -100,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
 
     // Animate bars inside the chart
     gsap.fromTo(".chart-bar", 
@@ -126,10 +116,10 @@ export function ConsoleOrganizzatore() {
         </p>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative px-6">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative px-6 perspective-[1200px]">
         <div 
           ref={mockupRef}
-          className="relative rounded-[2.5rem] bg-brand-dark overflow-hidden p-2 sm:p-4 border border-brand-dark/10 shadow-[0_30px_100px_rgba(4,7,7,0.15)] origin-top"
+          className="relative rounded-[2.5rem] bg-brand-dark overflow-hidden p-2 sm:p-4 border border-brand-dark/10 shadow-[0_40px_100px_rgba(4,7,7,0.25)] origin-bottom"
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1A90B8]/20 to-transparent opacity-50" />
           

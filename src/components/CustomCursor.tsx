@@ -42,34 +42,37 @@ export function CustomCursor() {
 
   return (
     <>
+      {/* Inner sharp dot */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[100] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[100] mix-blend-difference hidden md:block"
         animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
-          scale: isHovering ? 4 : 1,
-          opacity: isHovering ? 0.8 : 1,
+          x: mousePosition.x - 6,
+          y: mousePosition.y - 6,
+          scale: isHovering ? 5 : 1,
         }}
         transition={{
-          type: 'tween',
-          ease: 'circOut',
-          duration: 0.2,
+          type: "spring",
+          stiffness: 800,
+          damping: 25,
+          mass: 0.1,
         }}
-        style={{ willChange: "transform, opacity" }}
+        style={{ willChange: "transform" }}
       />
+      
+      {/* Outer trailing ring */}
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 border border-white/20 rounded-full pointer-events-none z-[99] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-white/50 rounded-full pointer-events-none z-[99] mix-blend-difference hidden md:block"
         animate={{
-          x: mousePosition.x - 24,
-          y: mousePosition.y - 24,
-          scale: isHovering ? 0 : 1,
-          opacity: isHovering ? 0 : 0.5,
+          x: mousePosition.x - 20,
+          y: mousePosition.y - 20,
+          scale: isHovering ? 1.5 : 1,
+          opacity: isHovering ? 0 : 1,
         }}
         transition={{
-          type: 'spring',
-          stiffness: 100,
+          type: "spring",
+          stiffness: 250,
           damping: 20,
-          mass: 0.8,
+          mass: 0.5,
         }}
         style={{ willChange: "transform, opacity" }}
       />

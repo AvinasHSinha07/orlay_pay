@@ -35,23 +35,6 @@ export function Analytics() {
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    // Main Section Entry Transition (Optimized scale & fade)
-    gsap.fromTo(containerRef.current, 
-      { opacity: 0, scale: 0.98, y: 50 },
-      { 
-        opacity: 1, 
-        scale: 1, 
-        y: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%",
-          toggleActions: "play reverse play reverse",
-        }
-      }
-    );
-
     // Header reveal
     gsap.fromTo(".analytics-header", 
       { opacity: 0, y: 50 },
@@ -105,9 +88,9 @@ export function Analytics() {
           {metrics.map((item, index) => (
             <div
               key={index}
-              className="analytics-card group bg-white/[0.03] border border-white/[0.05] p-8 rounded-3xl hover:bg-white/[0.08] transition-all duration-300 backdrop-blur-md"
+              className="analytics-card group bg-white/[0.03] border border-white/[0.05] p-8 rounded-3xl backdrop-blur-md"
             >
-              <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6 text-brand-primary group-hover:scale-110 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6 text-brand-primary group-hover:scale-110 transition-all duration-300">
                   <item.icon size={20} />
               </div>
               <h3 className="text-lg font-display font-bold mb-2">

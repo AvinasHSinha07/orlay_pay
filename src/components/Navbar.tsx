@@ -45,7 +45,7 @@ export function Navbar() {
             <img 
               src="https://i.ibb.co.com/7JgVKqx4/Orlay-Pay-png-01.png" 
               alt="Orlay Pay" 
-              className="h-8 md:h-[42px] object-contain transition-transform group-hover:scale-105 duration-300"
+              className="h-8 md:h-20 object-contain transition-transform group-hover:scale-105 duration-300"
             />
           </a>
 

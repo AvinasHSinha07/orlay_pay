@@ -108,7 +108,7 @@ export function TargetAudience() {
           {tags.map((tag) => (
             <div
               key={tag}
-              className="target-tag px-6 py-3 bg-white/5 border border-white/10 text-white backdrop-blur-md rounded-full text-sm md:text-base font-medium transition-colors hover:bg-brand-primary hover:border-brand-primary hover:text-white cursor-default shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+              className="target-tag px-6 py-3 bg-white/5 border border-white/10 text-white backdrop-blur-md rounded-full text-sm md:text-base font-medium cursor-default shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
             >
               {tag}
             </div>

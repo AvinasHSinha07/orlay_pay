@@ -126,7 +126,7 @@ export function Hero() {
               className="flex flex-col items-center gap-4 relative mt-2 opacity-0"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-soft/20 to-transparent blur-md" />
-              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold text-brand-dark/70 uppercase tracking-widest relative z-10 px-4 py-3 md:px-6 md:py-4 rounded-3xl border border-brand-dark/5 bg-white/50 backdrop-blur-sm shadow-sm transition-transform hover:scale-[1.02] duration-500">
+              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold text-brand-dark uppercase tracking-widest relative z-10 px-4 py-3 md:px-6 md:py-4 rounded-3xl border border-brand-dark/10 bg-white shadow-sm transition-transform hover:scale-[1.02] duration-500">
                 <span className="hover:text-brand-primary transition-colors cursor-default whitespace-nowrap">Food & beverage</span>
                 <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-brand-primary/40" />
                 <span className="hover:text-brand-primary transition-colors cursor-default whitespace-nowrap">Hospitality</span>
@@ -149,9 +149,9 @@ export function Hero() {
            className="relative perspective-[1200px] w-full max-w-6xl mt-48 md:mt-64 mb-10"
         >
           {/* Main Interactive Mockup */}
-          <div className="relative z-20 w-full aspect-[16/10] md:aspect-[21/9] rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/5 overflow-hidden flex flex-col">
+          <div className="relative z-20 w-full aspect-[16/10] md:aspect-[21/9] rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden flex flex-col">
             {/* Fake Window Header */}
-            <div className="h-10 md:h-12 bg-[#F8FCFD] border-b border-brand-dark/5 flex items-center px-4 md:px-6 gap-2">
+            <div className="h-10 md:h-12 bg-white border-b border-brand-dark/10 flex items-center px-4 md:px-6 gap-2">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-amber-400" />
@@ -163,7 +163,7 @@ export function Hero() {
             </div>
             
             {/* Dashboard Content */}
-            <div className="flex-1 p-6 flex flex-col gap-6 bg-brand-light/30">
+            <div className="flex-1 p-6 flex flex-col gap-6 bg-[#F8FCFD]">
               <div className="flex justify-between items-end">
                 <div>
                   <h3 className="text-lg font-display font-semibold mb-1">Live Event Ops</h3>

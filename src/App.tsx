@@ -19,7 +19,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   return (
     <SmoothScroll>
-      <div className="relative selection:bg-brand-primary/30 selection:text-brand-dark">
+      <div className="relative overflow-x-hidden selection:bg-brand-primary/30 selection:text-brand-dark">
         <CustomCursor />
         <Navbar />
         <main>
