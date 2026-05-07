@@ -41,11 +41,11 @@ export function Navbar() {
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <a href="#" className="relative z-10 flex items-center gap-3 group">
+          <a href="#" className="relative z-10 flex items-center h-8 md:h-12 w-[120px] md:w-[200px] shrink-0 group">
             <img 
-              src="https://i.ibb.co.com/7JgVKqx4/Orlay-Pay-png-01.png" 
+              src="https://i.ibb.co.com/rPR09h9/Orlay-Pay-png-01-removebg-preview.png" 
               alt="Orlay Pay" 
-              className="h-8 md:h-20 object-contain transition-transform group-hover:scale-105 duration-300"
+              className="absolute top-1/2 left-0 -translate-y-1/2 h-12 md:h-28 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
             />
           </a>
 
