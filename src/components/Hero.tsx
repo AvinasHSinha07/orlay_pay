@@ -62,7 +62,7 @@ export function Hero() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative min-h-[120vh] pt-32 lg:pt-48 pb-20 overflow-hidden bg-brand-white flex flex-col items-center">
+    <section ref={containerRef} className="relative min-h-screen pt-28 lg:pt-32 pb-32 overflow-hidden bg-brand-white flex flex-col items-center">
       {/* Background gradients - Optimized for GPU with Parallax wrapper */}
       <div ref={bgRef} className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[0%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-primary/10 via-brand-soft/20 to-transparent opacity-80" />
@@ -70,14 +70,14 @@ export function Hero() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wIDEwaDQwTTAgMjBoNDBNMCAzMGg0TTAgNDBoNDBNMTAgMHY0ME0yMCAwdjQwTTMwIDB2NDBNNDAgMHY0MCIgc3Ryb2tlPSJyZ2JhKDAsMCwwLDAuMDIpIiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==')] opacity-50" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col items-center text-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col items-center text-center">
         
-        <motion.div style={{ y, opacity, willChange: "transform, opacity" }} className="flex flex-col items-center w-full max-w-4xl mx-auto">
+        <motion.div style={{ y, opacity, willChange: "transform, opacity" }} className="flex flex-col items-center w-full">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-sm font-medium border-brand-primary/20 text-brand-primary mb-10 shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-sm font-medium border-brand-primary/20 text-brand-primary mb-12 shadow-sm"
             style={{ willChange: "transform, opacity" }}
           >
             <Signal size={16} className="animate-pulse" />
@@ -87,7 +87,7 @@ export function Hero() {
           {/* GSAP Headline */}
           <h1 
             ref={headlineRef}
-            className="text-5xl md:text-7xl lg:text-[92px] leading-[1.05] font-display font-bold text-brand-dark tracking-tight mb-8 [clip-path:polygon(0_0,100%_0,100%_150%,0%_150%)]"
+            className="text-5xl md:text-7xl lg:text-[88px] leading-[1.1] font-display font-bold text-brand-dark tracking-tight mb-10 [clip-path:polygon(0_0,100%_0,100%_150%,0%_150%)]"
             style={{ willChange: "transform, opacity", perspective: "1000px" }}
           >
             Il pubblico è già lì.<br />
@@ -99,7 +99,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-2xl md:leading-relaxed text-brand-muted mb-12 max-w-3xl font-light"
+            className="text-lg md:text-xl md:leading-relaxed text-brand-muted mb-16 max-w-3xl font-light"
             style={{ willChange: "transform, opacity" }}
           >
             Orlay Pay aiuta organizzatori, venue e operatori food & beverage a rendere ordine, incasso e ritiro più fluidi: meno code, meno rinunce, più controllo operativo.
@@ -109,24 +109,24 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center gap-10 w-full mt-4"
+            className="flex flex-col items-center gap-8 w-full"
             style={{ willChange: "transform, opacity" }}
           >
             <a 
               href="#demo"
-              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-brand-dark px-10 py-5 text-lg font-medium text-white transition-all hover:scale-[1.03] duration-500 shadow-[0_10px_40px_rgba(4,7,7,0.1)] hover:shadow-[0_15px_50px_rgba(41,176,222,0.2)] w-full sm:w-auto"
+              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-brand-dark px-12 py-4 text-base font-semibold text-white transition-all hover:scale-[1.05] duration-500 shadow-[0_10px_40px_rgba(4,7,7,0.1)] hover:shadow-[0_15px_50px_rgba(41,176,222,0.2)]"
             >
-              <span className="relative z-10 transition-transform duration-500 group-hover:-translate-x-2">Richiedi una demo</span>
-              <ArrowRight size={20} className="relative z-10 transition-all duration-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 absolute right-6" />
+              <span className="relative z-10 transition-transform duration-500 group-hover:-translate-x-1">Richiedi una demo</span>
+              <ArrowRight size={18} className="relative z-10 transition-all duration-500 opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0" />
               <div className="absolute inset-0 bg-gradient-to-r from-brand-primary to-[#1A90B8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
 
             <div 
               ref={microTextRef}
-              className="flex flex-col items-center gap-4 relative mt-2 opacity-0"
+              className="flex flex-col items-center gap-6 relative opacity-0"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-soft/20 to-transparent blur-md" />
-              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold text-brand-dark uppercase tracking-widest relative z-10 px-4 py-3 md:px-6 md:py-4 rounded-3xl border border-brand-dark/10 bg-white shadow-sm transition-transform hover:scale-[1.02] duration-500">
+              <div className="flex flex-wrap justify-center items-center gap-3 md:gap-5 text-xs md:text-sm font-semibold text-brand-dark uppercase tracking-wider relative z-10 px-6 py-3 md:px-8 md:py-4 rounded-3xl border border-brand-dark/10 bg-white shadow-sm transition-transform hover:scale-[1.02] duration-500">
                 <span className="hover:text-brand-primary transition-colors cursor-default whitespace-nowrap">Food & beverage</span>
                 <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-brand-primary/40" />
                 <span className="hover:text-brand-primary transition-colors cursor-default whitespace-nowrap">Hospitality</span>
@@ -146,7 +146,7 @@ export function Hero() {
            initial={{ opacity: 0, y: 100 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1.2, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-           className="relative perspective-[1200px] w-full max-w-6xl mt-48 md:mt-64 mb-10"
+           className="relative perspective-[1200px] w-full max-w-5xl mt-20 md:mt-32 lg:mt-40"
         >
           {/* Main Interactive Mockup */}
           <div className="relative z-20 w-full aspect-[16/10] md:aspect-[21/9] rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden flex flex-col">
