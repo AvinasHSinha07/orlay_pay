@@ -149,130 +149,143 @@ export function Hero() {
            className="relative perspective-distant w-full max-w-5xl mt-20 md:mt-32 lg:mt-40"
         >
           {/* Main Interactive Mockup */}
-          <div className="relative z-20 w-full aspect-16/10 md:aspect-21/9 rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden flex flex-col">
-            {/* Fake Window Header */}
-            <div className="h-10 md:h-12 bg-white border-b border-brand-dark/10 flex items-center px-4 md:px-6 gap-2">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-amber-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
-              </div>
-              <div className="mx-auto text-[10px] md:text-xs font-semibold text-brand-muted tracking-wider flex items-center gap-1.5 opacity-60">
-                 <Lock size={12} /> orlaypay.com/console
-              </div>
-            </div>
-            
-            {/* Dashboard Content */}
-            <div className="flex-1 p-6 flex flex-col gap-6 bg-[#F8FCFD]">
-              <div className="flex justify-between items-end">
-                <div>
-                  <h3 className="text-lg font-display font-semibold mb-1">Live Event Ops</h3>
-                  <p className="text-xs text-brand-muted">Main Stage & Food Courts</p>
+          {/* Disabled previous interactive mockup */}
+          {false && (
+            <>
+              <div className="relative z-20 w-full aspect-16/10 md:aspect-21/9 rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden flex flex-col">
+                {/* Fake Window Header */}
+                <div className="h-10 md:h-12 bg-white border-b border-brand-dark/10 flex items-center px-4 md:px-6 gap-2">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400" />
+                    <div className="w-3 h-3 rounded-full bg-amber-400" />
+                    <div className="w-3 h-3 rounded-full bg-green-400" />
+                  </div>
+                  <div className="mx-auto text-[10px] md:text-xs font-semibold text-brand-muted tracking-wider flex items-center gap-1.5 opacity-60">
+                     <Lock size={12} /> orlaypay.com/console
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-medium border border-green-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  Live
-                </div>
-              </div>
-
-              {/* Metrics */}
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { label: "Ordini / min", value: "142", trend: "+12%" },
-                  { label: "Attesa stimata", value: "2.5m", trend: "-15%" },
-                  { label: "Incasso Live", value: "€45K", trend: "+8%" }
-                ].map((stat, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.5 + i * 0.1 }}
-                    className="bg-white p-4 rounded-xl md:rounded-2xl border border-brand-dark/5 shadow-sm"
-                  >
-                    <p className="text-[10px] md:text-xs uppercase tracking-wider text-brand-muted font-semibold mb-2">{stat.label}</p>
-                    <div className="flex items-end justify-between">
-                      <p className="text-xl md:text-3xl font-display font-bold text-brand-dark">{stat.value}</p>
-                      <span className="text-[10px] md:text-xs font-medium text-green-500 bg-green-50 px-2 py-1 rounded-md">{stat.trend}</span>
+                
+                {/* Dashboard Content */}
+                <div className="flex-1 p-6 flex flex-col gap-6 bg-[#F8FCFD]">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <h3 className="text-lg font-display font-semibold mb-1">Live Event Ops</h3>
+                      <p className="text-xs text-brand-muted">Main Stage & Food Courts</p>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-medium border border-green-100">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                      Live
+                    </div>
+                  </div>
 
-              {/* Chart Mockup */}
-              <div className="flex-1 bg-white rounded-xl md:rounded-2xl border border-brand-dark/5 shadow-sm p-4 relative overflow-hidden hidden sm:block">
-                <div className="flex justify-between items-center mb-4">
-                  <p className="text-xs font-semibold text-brand-muted uppercase">Conversions vs Time</p>
-                  <div className="h-4 w-16 bg-brand-soft rounded" />
-                </div>
-                
-                {/* Fake Chart Lines */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 flex items-end justify-between px-6 pb-4 gap-3 opacity-80">
-                  {[30, 40, 35, 50, 45, 60, 70, 65, 80, 95, 85, 100].map((h, i) => (
+                  {/* Metrics */}
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { label: "Ordini / min", value: "142", trend: "+12%" },
+                      { label: "Attesa stimata", value: "2.5m", trend: "-15%" },
+                      { label: "Incasso Live", value: "€45K", trend: "+8%" }
+                    ].map((stat, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.5 + i * 0.1 }}
+                        className="bg-white p-4 rounded-xl md:rounded-2xl border border-brand-dark/5 shadow-sm"
+                      >
+                        <p className="text-[10px] md:text-xs uppercase tracking-wider text-brand-muted font-semibold mb-2">{stat.label}</p>
+                        <div className="flex items-end justify-between">
+                          <p className="text-xl md:text-3xl font-display font-bold text-brand-dark">{stat.value}</p>
+                          <span className="text-[10px] md:text-xs font-medium text-green-500 bg-green-50 px-2 py-1 rounded-md">{stat.trend}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Chart Mockup */}
+                  <div className="flex-1 bg-white rounded-xl md:rounded-2xl border border-brand-dark/5 shadow-sm p-4 relative overflow-hidden hidden sm:block">
+                    <div className="flex justify-between items-center mb-4">
+                      <p className="text-xs font-semibold text-brand-muted uppercase">Conversions vs Time</p>
+                      <div className="h-4 w-16 bg-brand-soft rounded" />
+                    </div>
+                    
+                    {/* Fake Chart Lines */}
+                    <div className="absolute bottom-0 left-0 right-0 h-32 flex items-end justify-between px-6 pb-4 gap-3 opacity-80">
+                      {[30, 40, 35, 50, 45, 60, 70, 65, 80, 95, 85, 100].map((h, i) => (
+                        <motion.div 
+                          key={i} 
+                          initial={{ height: "0%" }}
+                          animate={{ height: `${h}%` }}
+                          transition={{ duration: 1.5, delay: 1.8 + i * 0.05, ease: "easeOut" }}
+                          className="w-full bg-gradient-to-t from-brand-primary to-brand-soft opacity-40 rounded-t-sm" 
+                        />
+                      ))}
+                    </div>
+
+                    {/* Curving Line */}
+                    <svg className="absolute bottom-4 left-0 right-0 w-full h-32 px-2" preserveAspectRatio="none" viewBox="0 0 100 100">
+                      <motion.path 
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 2, delay: 1.8, ease: "easeInOut" }}
+                        d="M0 100 Q 10 90, 20 80 T 40 70 T 60 40 T 80 20 T 100 10"
+                        fill="none" 
+                        stroke="var(--color-brand-primary)" 
+                        strokeWidth="3" 
+                        vectorEffect="non-scaling-stroke"
+                      />
+                    </svg>
+                    
+                    {/* Glowing Point */}
                     <motion.div 
-                      key={i} 
-                      initial={{ height: "0%" }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ duration: 1.5, delay: 1.8 + i * 0.05, ease: "easeOut" }}
-                      className="w-full bg-gradient-to-t from-brand-primary to-brand-soft opacity-40 rounded-t-sm" 
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 3.5, type: "spring" }}
+                      className="absolute right-[4%] top-[15%] w-4 h-4 bg-white border-[3px] border-brand-primary rounded-full shadow-[0_0_15px_rgba(41,176,222,0.8)]"
                     />
-                  ))}
+                  </div>
                 </div>
-
-                {/* Curving Line */}
-                <svg className="absolute bottom-4 left-0 right-0 w-full h-32 px-2" preserveAspectRatio="none" viewBox="0 0 100 100">
-                  <motion.path 
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 2, delay: 1.8, ease: "easeInOut" }}
-                    d="M0 100 Q 10 90, 20 80 T 40 70 T 60 40 T 80 20 T 100 10"
-                    fill="none" 
-                    stroke="var(--color-brand-primary)" 
-                    strokeWidth="3" 
-                    vectorEffect="non-scaling-stroke"
-                  />
-                </svg>
-                
-                {/* Glowing Point */}
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 3.5, type: "spring" }}
-                  className="absolute right-[4%] top-[15%] w-4 h-4 bg-white border-[3px] border-brand-primary rounded-full shadow-[0_0_15px_rgba(41,176,222,0.8)]"
-                />
               </div>
-            </div>
+
+              {/* Floating Elements */}
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: [0, -10, 0], opacity: 1 }}
+                transition={{ y: { duration: 4, repeat: Infinity, ease: "easeInOut" }, opacity: { delay: 1.6 } }}
+                className="absolute -right-4 md:-right-10 top-[20%] md:top-[15%] z-30 glass-panel rounded-2xl p-4 flex items-center gap-4 w-48 shadow-2xl border border-white/50"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#E8F6FB] flex items-center justify-center shrink-0">
+                  <Users size={18} className="text-brand-primary" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-brand-muted uppercase font-semibold">Bar Nord</p>
+                  <p className="text-sm font-bold text-brand-dark mt-0.5">Coda azzerata</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: [0, 15, 0], opacity: 1 }}
+                transition={{ y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }, opacity: { delay: 1.8 } }}
+                className="absolute -left-4 md:-left-12 bottom-[20%] md:bottom-[25%] z-30 glass-panel rounded-2xl p-4 flex items-center gap-4 w-52 shadow-2xl border border-white/50"
+              >
+                <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center shrink-0">
+                  <Zap size={18} className="text-amber-500" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-brand-muted uppercase font-semibold">Peak Alert</p>
+                  <p className="text-sm font-bold text-brand-dark mt-0.5">+45% Food Zone</p>
+                </div>
+              </motion.div>
+            </>
+          )}
+
+          <div className="relative z-20 w-full rounded-2xl md:rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(4,7,7,0.15)] border border-brand-dark/10 overflow-hidden">
+            <img 
+              src="https://demo.upendrasingha.xyz/pitckdeckimages/section11-dashboard.png" 
+              alt="Dashboard view" 
+              className="w-full h-auto object-cover" 
+            />
           </div>
-
-          {/* Floating Elements */}
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: [0, -10, 0], opacity: 1 }}
-            transition={{ y: { duration: 4, repeat: Infinity, ease: "easeInOut" }, opacity: { delay: 1.6 } }}
-            className="absolute -right-4 md:-right-10 top-[20%] md:top-[15%] z-30 glass-panel rounded-2xl p-4 flex items-center gap-4 w-48 shadow-2xl border border-white/50"
-          >
-            <div className="w-10 h-10 rounded-full bg-[#E8F6FB] flex items-center justify-center shrink-0">
-              <Users size={18} className="text-brand-primary" />
-            </div>
-            <div>
-              <p className="text-[10px] text-brand-muted uppercase font-semibold">Bar Nord</p>
-              <p className="text-sm font-bold text-brand-dark mt-0.5">Coda azzerata</p>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: [0, 15, 0], opacity: 1 }}
-            transition={{ y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }, opacity: { delay: 1.8 } }}
-            className="absolute -left-4 md:-left-12 bottom-[20%] md:bottom-[25%] z-30 glass-panel rounded-2xl p-4 flex items-center gap-4 w-52 shadow-2xl border border-white/50"
-          >
-            <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center shrink-0">
-              <Zap size={18} className="text-amber-500" />
-            </div>
-            <div>
-              <p className="text-[10px] text-brand-muted uppercase font-semibold">Peak Alert</p>
-              <p className="text-sm font-bold text-brand-dark mt-0.5">+45% Food Zone</p>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
